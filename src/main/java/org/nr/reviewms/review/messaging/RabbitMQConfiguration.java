@@ -23,8 +23,8 @@ public class RabbitMQConfiguration {
 
     @Bean //Handles creation and release of resource from rabbitmq while sending and receiving message
     public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
-        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(jsonMessageConverter());
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory); //for creating connection
+        rabbitTemplate.setMessageConverter(jsonMessageConverter()); // added jackson support
         return rabbitTemplate;
     }
 }
