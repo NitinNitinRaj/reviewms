@@ -73,7 +73,7 @@ public class ReviewController {
                     HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/averageRating")
+    @GetMapping("/reviews/averageRating")
     public Double getAverageReview(@RequestParam("companyId") Long companyId) {
         List<Review> reviews = reviewService.getAllReviews(companyId);
         return reviews.stream().mapToDouble(Review::getRating).average().orElse(0.0);
